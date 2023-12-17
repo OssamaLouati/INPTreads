@@ -254,7 +254,8 @@ export async function updateCommunityInfo(
     // Find the community by its _id and update the information
     const updatedCommunity = await Community.findOneAndUpdate(
       { id: communityId },
-      { name, username, image }
+      { name, username, image },
+      {new : true}
     );
 
     if (!updatedCommunity) {
@@ -297,7 +298,7 @@ export async function deleteCommunity(communityId: string) {
     await Promise.all(updateUserPromises);
 
     return deletedCommunity;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error deleting community: ", error);
     throw error;
   }
