@@ -1,12 +1,10 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import Head from "next/head"; // Import Head to set the font
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 
 import "../globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Auth",
@@ -24,8 +22,14 @@ export default function RootLayout({
         baseTheme: dark,
       }}
     >
-      <html lang='en'>
-        <body className={`${inter.className} bg-dark-1`}>{children}</body>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+        />
+      </Head>
+      <html lang="en">
+        <body className="font-roboto bg-dark-1">{children}</body>
       </html>
     </ClerkProvider>
   );
