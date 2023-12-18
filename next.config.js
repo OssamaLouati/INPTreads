@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
+    serverActions: {
+      // Enable server action logging
+      enableLogging: true,
+      },
     serverComponentsExternalPackages: ["mongoose"],
   },
   eslint: {
