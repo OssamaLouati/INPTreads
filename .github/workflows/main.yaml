@@ -20,7 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: ${{ matrix.node-version }} # Use the specified Node.js version
 
       - name: Install dependencies
         run: npm install
@@ -36,5 +36,3 @@ jobs:
           # Add your deployment commands here
           # For example, if deploying to Vercel:
           # npx vercel --prod
-
-  # Add more jobs as needed (e.g., database migrations, additional testing)
